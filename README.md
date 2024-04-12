@@ -69,7 +69,7 @@ Os *scripts* [01-nuvem-de-palavras.R](), [02-palavras-chave.R](), [03-prescricoe
 
 #### Dados sobre as bases
 
-A base completa contém 300 comentários e 147 palavras-chave únicas, referentes a dez (10) perfils monitorados (30 publicações cada). Os dados foram obtidos por meio da plataforma Apify, considerando os seguintes campos:
+A base completa contém 300 comentários e 147 palavras-chave únicas, referentes a dez (10) perfils monitorados (30 publicações cada). Os dados foram obtidos por meio da plataforma [Apify](https://apify.com/), considerando os seguintes campos:
 
 |Identificador do campo|Significado|
 |----------------------|-----------|
@@ -116,4 +116,14 @@ A partir da identificação da alta ocorrência do termo “não” (278), proce
 
 #### Comentários e curtidas
 
+Por fim, nenhuma relação foi encontrada na análise das diferenças observadas nos comentários, considerando as diferenças observadas nas curtidas. Os coeficientes de correlação apontam situações de muita interação entre influenciadores e seguidores, enquanto em outras os seguidores curtem as publicações sem fazer comentários. 
+
 ![Relações entre comentários e curtidas](imagens/cor.png)
+
+Estes achados têm implicações para os cálculos mais tradicionais de influência, em que o índice é apurado a partir da razão entre o total de comentários e curtidas e o número de seguidores. Dependendo da temática da publicação, as gestantes parecem satisfeitas em consumir o conteúdo sem interagir com seu autor. 
+
+---
+
+### Licença
+
+Este repositório é distribuído pela licença [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/deed.pt).
