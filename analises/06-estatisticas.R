@@ -7,7 +7,9 @@
 # https://github.com/hugocristo/fbtc2024
 # -----------------------------------------------------------
 
-library('ggplot2')
+library(ggplot2)
+library(readxl)
+library(stringr)
 
 # corrige notação matemática
 options(scipen=100, digits=4)
