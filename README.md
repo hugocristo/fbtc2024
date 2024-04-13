@@ -84,7 +84,7 @@ analises
 
 ~~~~
 
-Os *scripts* disponíveis na pasta do projeto correspondem às análises do trabalho apresentado. Todas as dependências (pacotes e bases de dados) estão indicadas em cada *script*. Os pacotes [ggplot2](https://ggplot2.tidyverse.org/), [stringr](https://stringr.tidyverse.org/), [readxl](https://readxl.tidyverse.org/) e [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) são necessários e podem ser instalados automaticamente seguindo as instruções do RStudio.
+Os *scripts* disponíveis na pasta do projeto correspondem às análises do trabalho apresentado. Todas as dependências (pacotes e bases de dados) estão indicadas em cada *script*. Os pacotes [ggplot2](https://ggplot2.tidyverse.org/), [stringr](https://stringr.tidyverse.org/), [readxl](https://readxl.tidyverse.org/), [emo](https://github.com/hadley/emo), [remotes](https://CRAN.R-project.org/package=remotes) e [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) são necessários e podem ser instalados automaticamente seguindo as instruções do RStudio.
 
 #### Dados sobre as bases
 
@@ -163,7 +163,7 @@ Por fim, nenhuma relação foi encontrada na análise das diferenças observadas
 
 ![Correlação de Pearson (r) entre curtidas e comentários](./imagens/cor.png)
 
-Os intervalos de confiança indicados no gráfico sugerem variação importante nas relações entre curtidas e comentários de todos os influenciadores, exceto pelo nº 6: *r*=0,97; p < 0.01; CI [0,92;0,98]. Os perfis 2, 7 e 8 apresentaram correlações fortes e positivas (acima de 0,60). O influenciador nº 1 não apresentou correlação significativa, apesar do elevado número de curtidas (425 mil).
+Os intervalos de confiança indicados no gráfico sugerem variação importante nas relações entre curtidas e comentários de todos os influenciadores, exceto pelo nº 6: *r*=0,97; p < 0,01; CI [0,92;0,98]. Os perfis 2, 7 e 8 apresentaram correlações fortes e positivas (acima de 0,60). O influenciador nº 1 não apresentou correlação significativa, apesar do elevado número de curtidas (425 mil).
 
 Estes achados têm implicações para os cálculos mais tradicionais de influência, em que o índice é apurado a partir da razão entre o total de comentários e curtidas e o número de seguidores. Dependendo da temática da publicação, as gestantes parecem satisfeitas com os conteúdos sem precisar interagir com os influenciadores que os produziram.
 
