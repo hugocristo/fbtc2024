@@ -13,7 +13,7 @@ library (wordcloud2)
 banco <- read_xlsx("./dados/lista-palavras.xlsx")
 
 # nuvem de palavras global
-wordcloud2(banco, size=1.6, color='random-dark')
+wordcloud2(banco, size=1.3, color='random-dark')
 
 # nuvem de palavras com frequência > 15 (5% do total)
 wordcloud2(banco[banco$frequencia > 15,], size=1, color='random-dark')

@@ -70,6 +70,8 @@ analises
    |
    +---- 05-prescricoes.R
    |
+   +---- 06-estatisticas.R
+   |
    +---- analises.Rproj
    |
    +---- dados
@@ -82,7 +84,7 @@ analises
 
 ~~~~
 
-Os *scripts* disponíveis na pasta do projeto correspondem às análises do trabalho apresentado. Todas as dependências (pacotes e bases de dados) estão indicadas em cada *script*. Os pacotes [ggplot2](https://ggplot2.tidyverse.org/), [stringr](https://stringr.tidyverse.org/). [readxl](https://readxl.tidyverse.org/) e [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) são necessários e podem ser instalados automaticamente seguindo as instruções do RStudio.
+Os *scripts* disponíveis na pasta do projeto correspondem às análises do trabalho apresentado. Todas as dependências (pacotes e bases de dados) estão indicadas em cada *script*. Os pacotes [ggplot2](https://ggplot2.tidyverse.org/), [stringr](https://stringr.tidyverse.org/), [readxl](https://readxl.tidyverse.org/) e [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) são necessários e podem ser instalados automaticamente seguindo as instruções do RStudio.
 
 #### Dados sobre as bases
 
@@ -140,15 +142,30 @@ A planilha [lista-hashtags.xlsx](lista-hashtags.xlsx) contém as palavras-chave 
 
 #### Prescrições
 
-A partir da identificação da alta ocorrência do termo “não” (278), procedeu-se à criação de um *script* que extrai o termo acompanhado de mais quatro (4) palavras, permitindo a análise do contexto mais amplo em que ocorreram.
+A partir da identificação da alta ocorrência do termo “não” (278), procedeu-se à criação de um *script* que extrai o termo acompanhado de mais quatro (4) palavras, permitindo a análise do contexto mais amplo em que ocorreram. Exemplos:
 
-#### Comentários e curtidas
+|Publicação|Prescrições|
+|----------|-----------|
+|1| Não temos a sorte de ganhar...<br>Não pode dar colo, vicia<Br>Quem aqui não acha importante saber...|
+|13| Não se preocupe com o seu corpo...<Br>Não precisa ter pressa...<br>
+|18| Tenha um carregador (sling pros menores, mochila ergonômica pros maiores) e não tenha medo de usá-lo|
+|20| A oração não é nosso último recurso, mas sim o primeiro|
+|23| Não é o chá que vai fazer seu bebê dormir melhor...|
+|25| Porque não importa o quão cansada estamos, sempre estaremos prontas para atender às necessidades dos nossos pequenos tesouros.|
+|27| É normal não amar o bebê... |
+|35| Cuide, ajude, ame, abrace mesmo que ela não queira... |
+|44| Repita comigo: AUTORIDADE não se conquista sendo carrasco.|
+|56| Cuidado para não deixar a criança mais velha de lado e dar atenção mais para a barriga ou para o recém nascido...|
 
-Por fim, nenhuma relação foi encontrada na análise das diferenças observadas nos comentários, considerando as diferenças observadas nas curtidas. Os coeficientes de correlação apontam situações de muita interação entre influenciadores e seguidores, enquanto em outras os seguidores curtem as publicações sem fazer comentários. 
+### Curtidas, comentários e influência
 
-![Relações entre comentários e curtidas](imagens/cor.png)
+Por fim, nenhuma relação foi encontrada na análise das diferenças observadas nos comentários, considerando as diferenças observadas nas curtidas (ver [06-estatisticas.R](./analises/06-estatisticas.R)). Os coeficientes de correlação apontam situações de muita interação entre influenciadores e seguidores, enquanto em outras os seguidores curtem as publicações sem fazer comentários.
 
-Estes achados têm implicações para os cálculos mais tradicionais de influência, em que o índice é apurado a partir da razão entre o total de comentários e curtidas e o número de seguidores. Dependendo da temática da publicação, as gestantes parecem satisfeitas em consumir o conteúdo sem interagir com seu autor. 
+![Correlação de Pearson (r) entre curtidas e comentários](./imagens/cor.png)
+
+Os intervalos de confiança indicados no gráfico sugerem variação importante nas relações entre curtidas e comentários de todos os influenciadores, exceto pelo nº 6: *r*=0,97; p < 0.01; CI [0,92;0,98]. Os perfis 2, 7 e 8 apresentaram correlações fortes e positivas (acima de 0,60). O influenciador nº 1 não apresentou correlação significativa, apesar do elevado número de curtidas (425 mil).
+
+Estes achados têm implicações para os cálculos mais tradicionais de influência, em que o índice é apurado a partir da razão entre o total de comentários e curtidas e o número de seguidores. Dependendo da temática da publicação, as gestantes parecem satisfeitas com os conteúdos sem precisar interagir com os influenciadores que os produziram.
 
 ---
 
