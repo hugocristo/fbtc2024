@@ -5,12 +5,19 @@ Este repositório contém dados e *scripts* utilizados no trabalho *"Temáticas 
 ### Autores
 
 Kátia Cristina de Paula
-<br>*Mestranda do Programa de PPGP / UFES*
+<br>*Mestranda do PPGP / UFES*
 <br>[kcrispaula@gmail.com](mailto:kcrispaula@gmail.com)
 
 Hugo Cristo Sant'Anna (orientador)
 <br>*Professor colaborador do PPGP / UFES*
 <br>[hugo.santanna@ufes.br](mailto:hugo.santanna@ufes.br)
+
+### Slides
+[apresentacao-fbtc-2024.pdf](./slides/apresentacao-fbtc-2024.pdf)
+
+### Sobre o trabalho
+
+Esta apresentação é parte da pesquisa de mestrado de Kátia Cristina de Paula no [Programa de Pós-Graduação em Psicologia (PPGP) da Ufes](https://psicologia.ufes.br/pt-br/pos-graduacao/PPGP) com financimento da CAPES.
 
 ---
 
@@ -38,26 +45,36 @@ As publicações, comentários e palavras-chave abordaram compromissos, dificuld
 
 **Palavras-chaves**: gestação, Instagram, Self-Determination Theory, maternidade, redes sociais
 
+#### Leituras sugeridas (SDT)
+
+Ryan, R. M., & Deci, E. L. (2020). Intrinsic and extrinsic motivation from a self-determination theory perspective: Definitions, theory, practices, and future directions. *Contemporary educational psychology*, 61, 101860. https://doi.org/10.1016/j.cedpsych.2020.101860
+
+Ryan, R. M., & Deci, E. L. (2022). Self-determination theory. In *Encyclopedia of quality of life and well-being research* (pp. 1-7). Cham: Springer International Publishing. https://link.springer.com/referenceworkentry/10.1007/978-3-319-69909-7_2630-2
+
 ---
 
 ### Reprodução das análises
 
-As análises foram desenvolvidas na [linguagem R](https://cran.r-project.org) e ambiente [RStudio](https://rstudio.com) e podem ser reproduzidas por meio da execução do projeto fornecido na pasta [./analises/](./analises/) deste repositório. A pasta tem a seguinte estrutura:
+As análises foram desenvolvidas na [linguagem R](https://cran.r-project.org) e ambiente [RStudio](https://rstudio.com) e podem ser reproduzidas por meio da execução do projeto [analises.Rproj](./analises/analises.Rproj) fornecido na pasta [./analises/](./analises/) deste repositório. A pasta tem a seguinte estrutura:
 
 ~~~~
 analises
    |
-   +---- 01-nuvem-de-palavras.R
+   +---- 01-gera-lista-palavras.R
    |
-   +---- 02-palavras-chave.R
+   +---- 02-nuvem-de-palavras.R
    |
-   +---- 03-prescricoes.R
+   +---- 03-gera-lista-hashtags.R
    |
-   +---- 04-hashtags.R
+   +---- 04-nuvem-hashtags.R
+   |
+   +---- 05-prescricoes.R
+   |
+   +---- analises.Rproj
    |
    +---- dados
            |
-           +---- banco-completo.xlsx
+           +---- banco-completo-anonimo.xlsx
            |
            +---- lista-palavras.xlsx
            |
@@ -65,11 +82,11 @@ analises
 
 ~~~~
 
-Os *scripts* [01-nuvem-de-palavras.R](), [02-palavras-chave.R](), [03-prescricoes.R]() e [04-hashtags.R]() correspondem às análises do trabalho apresentado. Todas as dependências (pacotes e bases de dados) estão indicadas em cada *script*. Os pacotes [ggplot2](https://ggplot2.tidyverse.org/), [stringr](https://stringr.tidyverse.org/) e [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) são necessários e podem ser instalados automaticamente seguindo as instruções do RStudio.
+Os *scripts* disponíveis na pasta do projeto correspondem às análises do trabalho apresentado. Todas as dependências (pacotes e bases de dados) estão indicadas em cada *script*. Os pacotes [ggplot2](https://ggplot2.tidyverse.org/), [stringr](https://stringr.tidyverse.org/). [readxl](https://readxl.tidyverse.org/) e [wordcloud2](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) são necessários e podem ser instalados automaticamente seguindo as instruções do RStudio.
 
 #### Dados sobre as bases
 
-A base completa contém 300 comentários e 147 palavras-chave únicas, referentes a dez (10) perfils monitorados (30 publicações cada). Os dados foram obtidos por meio da plataforma [Apify](https://apify.com/), considerando os seguintes campos:
+A base completa contém 300 comentários e 147 palavras-chave (*hashtags*) únicas, referentes a dez (10) perfils monitorados (30 publicações cada). Os dados foram obtidos por meio da plataforma [Apify](https://apify.com/), considerando os seguintes campos:
 
 |Identificador do campo|Significado|
 |----------------------|-----------|
@@ -97,18 +114,29 @@ A base completa contém 300 comentários e 147 palavras-chave únicas, referente
 |latestComments/n/replies/m/timestamp|data e hora da resposta m ao comentário n|
 |videoUrl|endereço do vídeo (link)|
 
-Fonte: elaborado pelos autores.
+Os *scripts* fornecidos são independentes, podendo ser executados individualmente. Os *scripts* responsáveis pela geração das tabelas de dados (*dataframes*) produzem arquivos CSV que foram importados no Microsoft Excel. Aspectos da limpeza manual realizada são indicados nas seções abaixo e as planilhas disponíveis na pasta [dados](./analises/dados/) contém as versões finais utilizadas nas análises do trabalho apresentado.
+
+
+|Script R|CSV exportado|XLXS limpo|
+|--------|-------------|----------|
+|01-gera-lista-palavras.R|lista.palavras.csv|lista.palavras.xls|
+|03-gera-lista-hashtags.R|hashtags-unicas.csv|hashtags-unicas.xls|
+|05-prescricoes.R|prescricoes.csv|prescricoes.xlsx|
 
 
 #### Nuvens de palavras
+A planilha [lista-palavras.xlsx](./analises/dados/lista-palavras.xlsx) contém os termos extraídos das publicações (*posts*) do banco [banco-completo-anonimo.xlsx](./analises/dados/banco-completo-anonimo.xlsx).
+As duas palavras mais utilizada no texto das publicações foram “você” (321) e “não” (278), seguidas por “bebê” (321). Após a mineração automática, a planilha gerada (*n*=4445 termos) foi limpa manualmente no Microsoft Excel, de modo a identificar eventuais termos não removidos, combinar termos com radicais comuns e padronizar gênero e número.
 
-As palavras-chave mais frequentes são #mãedemenino (*f*=209), #maternidadereal (180), #bebês (174), #mães (165) e #gestante (148) as mais frequentes. A planilha [lista-hashtags.xlsx](lista-hashtags.xlsx) contém as palavras-chave extraídas de [banco-completo.xlsx](banco-completo.xlsx) e suas respectivas frequências.
-
-![Nuvem de palavras das publicações](imagens/nuvem-2.png)
-
-As duas palavras mais utilizada no texto das publicações foram “você” (321) e “não” (278), seguidas por “bebê” (321).
+Atenção ao executar o *script* [01-gera-lista-palavras.R](./analises/01-gera-lista-palavras.R), pois o processamento é demorado (4445 termos x 300 *posts*).
 
 ![Nuvem de palavras-chave (hashtags)](imagens/nuvem-1.png)
+
+As palavras-chave mais frequentes são #mãedemenino (*f*=209), #maternidadereal (180), #bebês (174), #mães (165) e #gestante (148) as mais frequentes. A extração dessas palavras-chave está descrita no *script* [03-gera-lista-hashtags.R](./analises/03-gera-lista-hashtags.R).
+
+A planilha [lista-hashtags.xlsx](lista-hashtags.xlsx) contém as palavras-chave extraídas de [banco-completo-anonimo.xlsx](./analises/dados/banco-completo-anonimo.xlsx) e suas respectivas frequências, após limpeza manual no Microsoft Excel (padronização de radicais, gênero e número dos termos) e remoção do sinal "tralha" (#).
+
+![Nuvem de palavras das publicações](imagens/nuvem-2.png)
 
 #### Prescrições
 
